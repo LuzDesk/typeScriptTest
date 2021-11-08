@@ -30,6 +30,17 @@ class Circle extends Shape {
     }
 }
 
+class TextShape extends Shape {
+    constructor(ctx: CanvasRenderingContext2D, originiX: number, originiY: number, public textShape: string){
+        super(ctx, originiX, originiY);
+    }
+
+    draw():void{
+        this.ctx.font = '30px Calibri';
+        this.ctx.fillText(this.textShape, this.originX, this.originY);
+    }
+}
+
 class MathHelper {
     static generateRandom():number {
         return Math.random() * 500;
@@ -40,6 +51,7 @@ const v =<HTMLCanvasElement>document.getElementById("myCanvas");
 var ctx = <CanvasRenderingContext2D> v.getContext("2d");
 const btnLine = document.getElementById("drawLine");
 const btnCircle = document.getElementById("drawCircle");
+const btnTextShape = document.getElementById("drawTextShape");
 
 btnLine?.addEventListener("click", () => {
     const line = new Line(ctx, MathHelper.generateRandom(),MathHelper.generateRandom()
@@ -47,10 +59,12 @@ btnLine?.addEventListener("click", () => {
     line.draw();
 });
 
-
-
 btnCircle?.addEventListener("click", () => {
     const circle = new Circle(ctx, MathHelper.generateRandom(),MathHelper.generateRandom(),MathHelper.generateRandom());
     circle.draw();
 });
 
+btnTextShape?.addEventListener("click", () => {
+    const textShape = new TextShape(ctx, MathHelper.generateRandom(),MathHelper.generateRandom(),'LVD');
+    textShape.draw();
+});

@@ -1,16 +1,15 @@
 /* Basic Style */
 
 body {
-    background: #fff;
+    background: #FEF9E7;
     color: #333;
     font-family: Lato, sans-serif;
 }
 
 .container {
-    display: flex;
-    width: 300px;
+    width: 800px;
     margin: 5px auto 0;
-    align-self: center;
+    /* align-self: center; */
 }
 
 nav {
@@ -38,15 +37,15 @@ nav {
 }
 
 .btn {
-    background-color: white;
+    background-color: #F7DC6F;
     width: 200px;
     height: 50px;
-    color: darkred;
+    color: #283747;
     font-size: 16px;
-    border-color: brown;
+    border-color:#F4D03F;
 }
 
 .btn:hover {
-    background-color:darkred;
-    color: white;
+    background-color:#B7950B ;
+    color: #D7DBDD;
 }
