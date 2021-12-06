@@ -80,7 +80,7 @@ let f: Figura = c;
 //f=l;
 
 c.Dibujar();
-l.Dibujar();
+//l.Dibujar();
 
 const fBase: FiguraBase = new FiguraBase();
 fBase.ObtenerArea();
