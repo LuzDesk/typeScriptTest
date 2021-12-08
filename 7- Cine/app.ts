@@ -79,7 +79,11 @@ operation.addEventListener('change', () =>{
         document.getElementById('msgErrorService')!.style.display  = "block";
         operation.value = '0';
     } else {
-        
+        if(operation.value == '0'){
+            document.getElementById('msgErrorOperation')!.style.display  = "block";
+        } else  {
+            document.getElementById('msgErrorOperation')!.style.display  = "none";
+        }
         switch(operation.value){
             case '1':
                 currentOperation = ServiceOperation.Renew;
