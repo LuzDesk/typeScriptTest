@@ -79,3 +79,71 @@ function dowloadData(data: NetworkData){
 
 dowloadData(game);
 dowloadData(artist);
+
+
+class VideoPalyer{
+    play(): void {
+        console.log('Playing video...');
+    }
+}
+
+class ImagePlayer{
+    play(): void{
+        console.log('Playing images...');
+    }
+    draw(): void{
+        console.log('Drawing image...');
+    }
+}
+
+// TypeGuard instanceof
+type Player = VideoPalyer | ImagePlayer;
+
+function usePlayer(player: Player){
+    player.play();
+    if(player instanceof ImagePlayer){
+        player.draw();
+    }
+}
+// const canvas  = document.getElementById('myCanvas')! as HTMLCanvasElement;
+const canvas  = <HTMLCanvasElement> document.getElementById('myCanvas')!;
+const c1 = canvas.getContext('2D');
+
+const weather = {
+    weather : 'clear sky'
+    , city: 'Mexico City'
+    , summary: 'The sky is clear'
+};
+
+// index property
+type Weather = {
+    [property: string]: string
+};
+
+const weather2: Weather = {
+    weather : 'clear sky 2'
+    , city: 'Mexico City 2'
+    , summary: 'The sky is clear 2'
+    , temp: '23'
+};
+
+// sobre carga de las funciones - OverLoads
+function add2(s: string, y:string):string;
+function add2(x: number, y: number): number;
+// function add2(x: superString, y: superString): any {
+//function add2(x: any, y: any): any {
+function add2(x: superString, y: superString): any {
+    if(typeof x=== 'string'|| typeof y === 'string'){
+        return x.toString() + y.toString();
+    } else {
+        return x + y;
+    }
+}
+
+console.log(add2(19,7));
+
+// Optional Chaining - Es una técnica nos va permitir la evaluacion de las propiedades de un objeto o elemento
+const button = document.getElementById('btn');
+button?.addEventListener('click', () => {
+    console.log('Click in button.');
+});
