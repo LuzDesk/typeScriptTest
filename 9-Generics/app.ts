@@ -58,7 +58,18 @@ console.log(element);
 element = pila.desapilar();
 console.log(element);
 
-
-class ClassGeneric{
-    
+// puede recibir cualquier tipo de dato
+class ClassGeneric<T>{
+    dato?: T;
+    constructor(_dato:T){
+        this.dato = _dato;
+    }
+    // se pueden declarar todos lo metodos de cualquier tipo
+    DoSomething(parameter:T): T{
+        const dato: T = parameter;
+        return dato;
+    }
 }
+
+const generic: ClassGeneric<number> = new ClassGeneric(123);
+const generic2: ClassGeneric<string> = new ClassGeneric('No es necesario memorizar todo');

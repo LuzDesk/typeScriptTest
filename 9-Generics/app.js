@@ -54,8 +54,17 @@ element = pila.desapilar();
 console.log(element);
 element = pila.desapilar();
 console.log(element);
+// puede recibir cualquier tipo de dato
 var ClassGeneric = /** @class */ (function () {
-    function ClassGeneric() {
+    function ClassGeneric(_dato) {
+        this.dato = _dato;
     }
+    // se pueden declarar todos lo metodos de cualquier tipo
+    ClassGeneric.prototype.DoSomething = function (parameter) {
+        var dato = parameter;
+        return dato;
+    };
     return ClassGeneric;
 }());
+var generic = new ClassGeneric(123);
+var generic2 = new ClassGeneric('No es necesario memorizar todo');
